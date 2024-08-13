@@ -22,7 +22,7 @@
     "node": ">=20"
   },
   "scripts": {
-    "package": "npx ncc build src/index.ts -o dist --source-map --license licenses.txt"
+    "package": "npx ncc build src/index.ts -o dist"
   },
   "license": "MIT",
   "dependencies": {},
