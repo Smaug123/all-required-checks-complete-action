@@ -1,18 +1,10 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/github-action.json
 name: 'all-required-checks-complete'
 description: 'Checks if the given statuses are successful. Fails if any are not.'
-
 inputs:
   needs-context:
     description: 'JSON string of the needs context, which you should give as toJSON(needs)'
     required: true
-
 runs:
-  using: "composite"
-  steps:
-    - name: all-required-checks-complete
-      shell: bash
-      if: ${{ always() }}
-      env:
-          ALL_REQUIRED_CHECKS_COMPLETE_RESULTS: ${{ inputs.needs-context }}
-      run: 'python "$GITHUB_ACTION_PATH/required_checks.py"'
+  using: 'node20'
+  main: 'dist/index.js'
