@@ -20,13 +20,13 @@ function processJob(jobName: string, jobData: JobData): number {
 }
 
 function main(): number {
-    const resultsJson = process.env["INPUT_NEEDS-CONTEXT"];
-    if (!resultsJson) { throw Error("No needs-context was provided") };
+    const resultsJson = process.env["INPUT_NEEDS"];
+    if (!resultsJson) { throw Error("No 'needs' was provided") };
     let results: { [key: string]: JobData };
     try {
         results = JSON.parse(resultsJson);
     } catch (error) {
-        throw(Error(`Error: Unable to parse needs-context as JSON: ${error}`));
+        throw(Error(`Error: Unable to parse 'needs' context as JSON: ${error}`));
     }
 
     let exitStatus = 0;

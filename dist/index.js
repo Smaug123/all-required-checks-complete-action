@@ -1,4 +1,12 @@
-"use strict";
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	/* webpack/runtime/compat */
+/******/ 	
+/******/ 	if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = __dirname + "/";
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+
 function processJob(jobName, jobData) {
     const status = jobData.result;
     console.log(`Processing job: ${jobName} with status: ${status}`);
@@ -16,9 +24,9 @@ function processJob(jobName, jobData) {
     }
 }
 function main() {
-    const resultsJson = process.env["INPUT_NEEDS-CONTEXT"];
+    const resultsJson = process.env["INPUT_NEEDS"];
     if (!resultsJson) {
-        throw Error("No needs-context was provided");
+        throw Error("No 'needs' was provided");
     }
     ;
     let results;
@@ -26,7 +34,7 @@ function main() {
         results = JSON.parse(resultsJson);
     }
     catch (error) {
-        throw (Error(`Error: Unable to parse needs-context as JSON: ${error}`));
+        throw (Error(`Error: Unable to parse 'needs' context as JSON: ${error}`));
     }
     let exitStatus = 0;
     for (const [jobName, jobData] of Object.entries(results)) {
@@ -41,3 +49,7 @@ function main() {
     return 0;
 }
 main();
+
+module.exports = __webpack_exports__;
+/******/ })()
+;
