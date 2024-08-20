@@ -4,3 +4,8 @@ description: 'Checks if the given statuses are successful. Fails if any are not.
 runs:
   using: 'node20'
   main: 'dist/index.js'
+inputs:
+  needs-context:
+    description: 'JSON string of the needs context, which you should give as toJSON(needs)'
+    required: false
+    default: ${{ toJSON(needs) }}
