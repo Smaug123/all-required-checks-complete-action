@@ -1,5 +1,7 @@
 # all-required-checks-complete-action
 
+**This is archived in favour of the [G-Research fork](https://github.com/G-Research/common-actions/tree/33666a03520041a810d377d5b01507df9a5b5d83/check-required-lite).**
+
 A GitHub Action which checks if the given steps have completed successfully.
 
 You must call it as follows.
